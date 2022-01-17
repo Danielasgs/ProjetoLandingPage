@@ -6,7 +6,6 @@ let imgAtual = 0;
 setaAvancar.addEventListener('click', function () {
     const totalDeImgs = imgPainel.length - 1
     if (imgAtual === totalDeImgs) {
-        document.getElementsByClassName('.conteudoPrincipal .paineis .seta.btnAvancar').style.opacity = '0.5';
         return;
     }
     imgAtual++;
@@ -18,7 +17,6 @@ setaAvancar.addEventListener('click', function () {
 
 setaVoltar.addEventListener('click', function () {
     if (imgAtual === 0) {
-        document.getElementsByClassName('.conteudoPrincipal .paineis .seta.btnVoltar').style.opacity = '0.5';
         return;
     }
     imgAtual--;
