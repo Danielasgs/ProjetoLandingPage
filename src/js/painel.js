@@ -3,6 +3,20 @@ const setaAvancar = document.getElementById('btnAvancar');
 const setaVoltar = document.getElementById('btnVoltar');
 let imgAtual = 0;
 
+function setas() {
+    if (imgAtual === 0) {
+        setaAvancar.style.opacity = 1;
+        setaVoltar.style.opacity = 0.5;
+        return;
+    } else if(imgAtual > 0){
+        setaAvancar.style.opacity = 1;
+        setaVoltar.style.opacity = 1;
+    }else if(imgAtual < totalDeImgs){
+        setaAvancar.style.opacity = 0.5;
+        setaVoltar.style.opacity = 1;
+        return;
+    }
+}
 /* 
 function esconderImg() {
     imgPainel.forEach(img=>{
@@ -20,11 +34,9 @@ setaAvancar.addEventListener('click', function (event) {
 
     const totalDeImgs = imgPainel.length - 1
     if (imgAtual >= totalDeImgs) {
-        setaAvancar.style.opacity = 0.5;
         return;
-    } else {
-        setaAvancar.style.opacity = 1;
     }
+    setas()
     imgAtual++;
     /* 
     esconderImg();
@@ -39,11 +51,9 @@ setaAvancar.addEventListener('click', function (event) {
 setaVoltar.addEventListener('click', function (event) {
     event.preventDefault()
     if (imgAtual === 0) {
-        setaVoltar.style.opacity = 0.5;
         return;
-    } else {
-        setaVoltar.style.opacity = 1;
     }
+    setas()
     imgAtual--;
     /* 
     esconderImg();
