@@ -15,10 +15,15 @@ function mostrarImg() {
     
 }
 */
-setaAvancar.addEventListener('click', function () {
+setaAvancar.addEventListener('click', function (event) {
+    event.preventDefault() //isso aqui faz com que a tela não volte para cima quando clicar na seta
+
     const totalDeImgs = imgPainel.length - 1
-    if (imgAtual === totalDeImgs) {
+    if (imgAtual >= totalDeImgs) {
+        setaAvancar.style.opacity = 0.5;
         return;
+    } else {
+        setaAvancar.style.opacity = 1;
     }
     imgAtual++;
     /* 
@@ -31,9 +36,13 @@ setaAvancar.addEventListener('click', function () {
     imgPainel[imgAtual].classList.add('mostrar');
 })
 
-setaVoltar.addEventListener('click', function () {
+setaVoltar.addEventListener('click', function (event) {
+    event.preventDefault()
     if (imgAtual === 0) {
+        setaVoltar.style.opacity = 0.5;
         return;
+    } else {
+        setaVoltar.style.opacity = 1;
     }
     imgAtual--;
     /* 
